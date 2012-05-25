@@ -6,7 +6,7 @@ define subsonic::config (
   file { '/etc/default/subsonic':
     owner   => 'root',
     group   => 'root',
-    content => template('subsonic/subsonic.erb'),
+    content => template('subsonic/default.erb'),
     notify  => Service['subsonic'],
   }
 }
