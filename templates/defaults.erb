@@ -1,0 +1,6 @@
+############################################
+# WARNING:
+# Managed by puppet - DO NOT modify locally.
+############################################
+
+SUBSONIC_ARGS="<%- if http_port != 'undef' -%>--port=<%= http_port %><%- end -%> <%- if https_port != 'undef' -%>--https_port=<%= https_port %><%- end -%> <%- if max_memory != 'undef' -%>--max_memory=<%= max_memory %><%- end -%>"
