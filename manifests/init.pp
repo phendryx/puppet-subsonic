@@ -1,7 +1,8 @@
+# Max memory in megabytes
 define subsonic (
                  $http_port = 'undef',
                  $https_port = 'undef',
-                 $max_memory = '128M',
+                 $max_memory = '128',
                 ){
 
   include subsonic::service
