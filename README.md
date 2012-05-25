@@ -15,7 +15,7 @@ This module will install and configure Subsonic <http://www.subsonic.org>
 
 === Example ===
 
-subsonic::config { 'some-name':
+subsonic { 'some-name':
   http_port  => '4040',
   https_port => '4044',
 }
