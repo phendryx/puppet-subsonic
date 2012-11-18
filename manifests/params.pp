@@ -10,6 +10,7 @@ class subsonic::params (
     $external_dns = hiera("external_dns", "localhost"),
     $proxy_nginx = hiera("proxy_nginx", "false"),
     $proxy_apache = hiera("proxy_apache", "false"),
+    $logrotate = hiera("logrotate", "false"),
     ){
     $log_dir = "$base_dir/subsonic/log"
     $data_dir = "$base_dir/subsonic/data"
