@@ -16,8 +16,8 @@ class subsonic::service inherits subsonic::params{
                   -Djava.awt.headless=true \
                   -verbose:gc \
                   -jar subsonic-booter-jar-with-dependencies.jar",
-            user => 'subsonic',
-            group => 'subsonic',
+            user => "$services_user",
+            group => "$services_user",
             directory => "$base_dir/subsonic/",
             require => [Exec['download-subsonic'],Class['java']],
     }

@@ -12,6 +12,7 @@ class subsonic::params (
     $proxy_apache = hiera("proxy_apache", "false"),
     $logrotate = hiera("logrotate", "false"),
     ){
+    $services_user = hiera("services_user")
     $log_dir = "$base_dir/subsonic/log"
     $data_dir = "$base_dir/subsonic/data"
 }

@@ -10,18 +10,18 @@ class subsonic::config {
     }
     file { "$log_dir":
         ensure => directory,
-        owner => 'subsonic',
-        group => 'subsonic',
+        owner => "$services_user",
+        group => "$services_user",
         mode => '0644',
     }
     file { "$base_dir/subsonic/data/":
         ensure => directory,
-        owner => 'subsonic',
-        group => 'subsonic',
+        owner => "$services_user",
+        group => "$services_user",
     }
     file { '/etc/default/subsonic':
-        owner   => 'subsonic',
-        group   => 'subsonic',
+        owner   => "$services_user",
+        group   => "$services_user",
         content => template('subsonic/default.erb'),
         notify  => Service['supervisor::subsonic'],
     }

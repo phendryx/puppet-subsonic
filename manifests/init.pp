@@ -5,18 +5,15 @@ class subsonic inherits subsonic::params {
     include subsonic::proxy
     $tar_output = "$base_dir/subsonic/subsonic-$subsonic_version-standalone.tar.gz"
 
-    user { 'subsonic':
-        allowdupe => false,
-        ensure => 'present',
-        shell => '/bin/bash',
-        home => "$base_dir/subsonic",
-        password => '*',
-    }
+#    user { "$services_user":
+#        allowdupe => false,
+#        ensure => 'present',
+#    }
 
     file { "$base_dir/subsonic":
         ensure => directory,
-        owner => 'subsonic',
-        group => 'subsonic',
+        owner => "$services_user",
+        group => "$services_user",
         mode => '0644',
     }
 
@@ -24,8 +21,7 @@ class subsonic inherits subsonic::params {
         command => "wget -O ${tar_output} http://sourceforge.net/projects/subsonic/files/subsonic/${subsonic_version}/subsonic-${subsonic_version}-standalone.tar.gz/download?use_mirror=autoselect",
         cwd     => "$base_dir/subsonic/",
         path    => '/usr/bin/',
-        user    => 'subsonic',
-        require => User['subsonic'],
+        user    => "$services_user",
         creates => "$tar_output",
     }
 
